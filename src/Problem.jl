@@ -35,6 +35,7 @@ function generate_problem_dictionary()
 	# Load the stoichiometric network from disk -
 	path_to_network_file = joinpath(_PATH_TO_CONFIG,"Network.dat")
 	stoichiometric_matrix = readdlm(path_to_network_file);
+	@show(stoichiometric_matrix)
 
 	# What is the system dimension? -
 	(number_of_species,number_of_reactions) = size(stoichiometric_matrix)
