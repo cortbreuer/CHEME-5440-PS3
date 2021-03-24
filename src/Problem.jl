@@ -46,11 +46,13 @@ function generate_problem_dictionary()
 	# TODO: col 1 => lower bound
 	# TODO: col 2 => upper bound
 	# TODO: each row is a reaction
-	flux_bounds_array[:,1] .= 0
-	flux_bounds_array[:,2] .= 10
+	flux_bounds_array[1:18,1] .= 0
+	flux_bounds_array[1:18,2] .= 10
+	@show(flux_bounds_array)
 
 	# Setup default species bounds array -
 	species_bounds_array = zeros(number_of_species,2)
+	@show(species_bounds_array)
 	# TODO: NOTE - we by default assume Sv = 0, so species_bounds_array should be a M x 2 array of zeros
 	# TODO: however, if you formulate the problem differently you *may* need to change this 
 
@@ -63,6 +65,7 @@ function generate_problem_dictionary()
 	# TODO: update me to maximize Urea production (Urea leaving the virtual box) 
 	# TODO: if is_minimum_flag = true => put a -1 in the index for Urea export
 	objective_coefficient_array[4] = -1
+	@show(objective_coefficient_array)
 	
 	# =============================== DO NOT EDIT BELOW THIS LINE ============================== #
 	data_dictionary = Dict{String,Any}()
