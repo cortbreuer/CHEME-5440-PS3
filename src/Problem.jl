@@ -39,15 +39,31 @@ function generate_problem_dictionary()
 
 	# What is the system dimension? -
 	(number_of_species,number_of_reactions) = size(stoichiometric_matrix)
-
+	@show(number_of_reactions)
+	@show(number_of_species)
+	
 	# Setup the flux bounds array -
 	flux_bounds_array = zeros(number_of_reactions,2)
 	# TODO: update the flux_bounds_array for each reaction in your network
 	# TODO: col 1 => lower bound
 	# TODO: col 2 => upper bound
 	# TODO: each row is a reaction
-	flux_bounds_array[1:18,1] .= 0
-	flux_bounds_array[1:18,2] .= 10
+	E = .01 # umol/gDW
+
+	flux_bounds_array[1,:] .= [0,10]
+	flux_bounds_array[2,:] .= [0,10]
+	flux_bounds_array[3,:] .= [-10, 0]
+	flux_bounds_array[4,:] .= [-10, 0]
+
+	flux_bounds_array[5:19,1] .= -10
+	flux_bounds_array[5:19,2] .= 10
+
+	flux_bounds_array[20,:] = [0, E*203]
+	flux_bounds_array[21,:] = [0, E*34.5]
+	flux_bounds_array[22,:] = [0, E*249]
+	flux_bounds_array[23,:] = [0, E*88.1]
+	flux_bounds_array[24,:] = [0, E*13.7]
+	flux_bounds_array[25,:] = [0, E*13.7]
 	@show(flux_bounds_array)
 
 	# Setup default species bounds array -
