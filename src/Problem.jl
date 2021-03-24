@@ -50,10 +50,10 @@ function generate_problem_dictionary()
 	# TODO: each row is a reaction
 	E = .01 # umol/gDW
 
-	flux_bounds_array[1,:] .= [0,10]
-	flux_bounds_array[2,:] .= [0,10]
-	flux_bounds_array[3,:] .= [-10, 0]
-	flux_bounds_array[4,:] .= [-10, 0]
+	flux_bounds_array[1,:] .= [0, 10]
+	flux_bounds_array[2,:] .= [0, 10]
+	flux_bounds_array[3,:] .= [0, 10]
+	flux_bounds_array[4,:] .= [0, 10]
 
 	flux_bounds_array[5:19,1] .= -10
 	flux_bounds_array[5:19,2] .= 10
@@ -62,8 +62,7 @@ function generate_problem_dictionary()
 	flux_bounds_array[21,:] = [0, E*34.5]
 	flux_bounds_array[22,:] = [0, E*249]
 	flux_bounds_array[23,:] = [0, E*88.1]
-	flux_bounds_array[24,:] = [0, E*13.7]
-	flux_bounds_array[25,:] = [0, E*13.7]
+	flux_bounds_array[24,:] = [-E*13.7, E*13.7]
 	@show(flux_bounds_array)
 
 	# Setup default species bounds array -
