@@ -35,12 +35,12 @@ function generate_problem_dictionary()
 	# Load the stoichiometric network from disk -
 	path_to_network_file = joinpath(_PATH_TO_CONFIG,"Network.dat")
 	stoichiometric_matrix = readdlm(path_to_network_file);
-	@show(stoichiometric_matrix)
+	#@show(stoichiometric_matrix)
 
 	# What is the system dimension? -
 	(number_of_species,number_of_reactions) = size(stoichiometric_matrix)
-	@show(number_of_reactions)
-	@show(number_of_species)
+	#@show(number_of_reactions)
+	#@show(number_of_species)
 	
 	# Setup the flux bounds array -
 	flux_bounds_array = zeros(number_of_reactions,2)
@@ -55,19 +55,19 @@ function generate_problem_dictionary()
 	flux_bounds_array[3,:] .= [0, 10]
 	flux_bounds_array[4,:] .= [0, 10]
 
-	flux_bounds_array[5:19,1] .= -10
-	flux_bounds_array[5:19,2] .= 10
+	flux_bounds_array[5:16,1] .= -10
+	flux_bounds_array[5:16,2] .= 10
 
-	flux_bounds_array[20,:] = [0, E*203]
-	flux_bounds_array[21,:] = [0, E*34.5]
-	flux_bounds_array[22,:] = [0, E*249]
-	flux_bounds_array[23,:] = [0, E*88.1]
-	flux_bounds_array[24,:] = [-E*13.7, E*13.7]
-	@show(flux_bounds_array)
+	flux_bounds_array[17,:] = [0, E*203]
+	flux_bounds_array[18,:] = [0, E*34.5]
+	flux_bounds_array[19,:] = [0, E*249]
+	flux_bounds_array[20,:] = [0, E*88.1]
+	flux_bounds_array[21,:] = [-E*13.7, E*13.7]
+	#@show(flux_bounds_array)
 
 	# Setup default species bounds array -
 	species_bounds_array = zeros(number_of_species,2)
-	@show(species_bounds_array)
+	#@show(species_bounds_array)
 	# TODO: NOTE - we by default assume Sv = 0, so species_bounds_array should be a M x 2 array of zeros
 	# TODO: however, if you formulate the problem differently you *may* need to change this 
 
@@ -80,7 +80,7 @@ function generate_problem_dictionary()
 	# TODO: update me to maximize Urea production (Urea leaving the virtual box) 
 	# TODO: if is_minimum_flag = true => put a -1 in the index for Urea export
 	objective_coefficient_array[4] = -1
-	@show(objective_coefficient_array)
+	#@show(objective_coefficient_array)
 	
 	# =============================== DO NOT EDIT BELOW THIS LINE ============================== #
 	data_dictionary = Dict{String,Any}()
