@@ -177,6 +177,9 @@ function calculate_optimal_flux_distribution(stoichiometric_matrix::Array{Float6
     # Calculate the uptake array -
     uptake_array = stoichiometric_matrix*calculated_flux_array;
 
+    #sv=stoichiometric_matrix * calculated_flux_array
+    #@show(sv)
+
     # return results_tuple -
     results_tuple = (objective_value=objective_value, calculated_flux_array=calculated_flux_array, 
         dual_value_array=dual_value_array, uptake_array=uptake_array, exit_flag=exit_flag,
