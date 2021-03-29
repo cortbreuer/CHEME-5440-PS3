@@ -64,7 +64,7 @@ function generate_problem_dictionary()
 	flux_bounds_array[19,:] = [0, E*88.1]
 	flux_bounds_array[20,:] = [-E*13.7, E*13.7]
 
-	#@show(flux_bounds_array)
+	@show(flux_bounds_array)
 
 	# Setup default species bounds array -
 	species_bounds_array = zeros(number_of_species,2)
