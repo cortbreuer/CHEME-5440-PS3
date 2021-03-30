@@ -163,7 +163,7 @@ function calculate_optimal_flux_distribution(stoichiometric_matrix::Array{Float6
     for flux_index in flux_index_vector
     	calculated_flux_array[flux_index] = GLPK.glp_get_col_prim(lp_problem, flux_index);
     end
-    @show(calculated_flux_array)
+    #@show(calculated_flux_array)
 
     # Get the dual values -
     dual_value_array = zeros(Float64,number_of_fluxes);
@@ -176,9 +176,6 @@ function calculate_optimal_flux_distribution(stoichiometric_matrix::Array{Float6
 
     # Calculate the uptake array -
     uptake_array = stoichiometric_matrix*calculated_flux_array;
-
-    #sv=stoichiometric_matrix * calculated_flux_array
-    #@show(sv)
 
     # return results_tuple -
     results_tuple = (objective_value=objective_value, calculated_flux_array=calculated_flux_array, 

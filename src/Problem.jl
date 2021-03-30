@@ -48,21 +48,21 @@ function generate_problem_dictionary()
 	# TODO: col 1 => lower bound
 	# TODO: col 2 => upper bound
 	# TODO: each row is a reaction
-	E = .01 # umol/gDW
+	E = .00001 # umol/gDW
 
 	flux_bounds_array[1,:] = [0, 10]
 	flux_bounds_array[2,:] = [0, 10]
 	flux_bounds_array[3,:] = [0, 10]
 	flux_bounds_array[4,:] = [0, 10]
 
-	flux_bounds_array[5:15,1] .= -10
+	flux_bounds_array[5:14,1] .= -10
 	flux_bounds_array[5:14,2] .= 10
 
-	flux_bounds_array[15,:] = [0, E*203]
-	flux_bounds_array[16,:] = [0, E*34.5]
-	flux_bounds_array[17,:] = [0, E*249]
-	flux_bounds_array[18,:] = [0, E*88.1]
-	flux_bounds_array[19,:] = [-E*13.7, E*13.7]
+	flux_bounds_array[15,:] = [0, E*203*60] #Adjust seconds to hours
+	flux_bounds_array[16,:] = [0, E*34.5*60]
+	flux_bounds_array[17,:] = [0, E*249*60]
+	flux_bounds_array[18,:] = [0, E*88.1*60]
+	flux_bounds_array[19,:] = [-E*13.7*60, E*13.7*60]
 
 	#@show(flux_bounds_array)
 
